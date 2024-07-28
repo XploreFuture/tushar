@@ -73,7 +73,7 @@
 </head>
 <body>
     <form>
-        <label for="Collegename">College Name:</label>
+        <label for="Collegename">College Name,City:</label>
         <input type="text" id="Collegename" name="Collegename" required><br><br>
 
         <label for="city">City:</label>
@@ -227,6 +227,24 @@
         <label for="Toprecruiter">Top Recruiter:</label>
         <input type="text" id="Toprecruiter" name="Toprecruiter" required><br><br>
 
+        <label for ="extraheading1"> Extra Heading 1 : </label>
+        <input type="text" id="extraheading1" name="extraheading1"> <br><br>
+
+        <label for ="extrapara1"> Extra paragraph 1 : </label>
+        <input type="text" id="extrapara1" name="extrapara1"> <br><br>
+
+        <label for ="extraheading2"> Extra Heading 2 : </label>
+        <input type="text" id="extraheading2" name="extraheading2"> <br><br>
+
+        <label for ="extrapara2"> Extra paragraph 2 : </label>
+        <input type="text" id="extrapara2" name="extrapara2"> <br><br>
+
+        <label for ="extraheading3"> Extra Heading 3 : </label>
+        <input type="text" id="extraheading3" name="extraheading3"> <br><br>
+
+        <label for ="extrapara3"> Extra paragraph 3 : </label>
+        <input type="text" id="extrapara3" name="extrapara3"> <br><br>
+
         <button type="button" onclick="generateParagraph()">Generate and Send</button>
     </form>
 
@@ -250,6 +268,7 @@
     </table>
 
     <script>
+
         async function getSelectedValues() {
             var select = document.getElementById('courseav');
             var selectedValues = [];
@@ -262,8 +281,8 @@
         }
         async function getOrCreateTag(tagName) {
             const url = 'https://xplorefuture.com/wp-json/wp/v2/tags';
-            const username = 'Tushar'; // Replace with your WordPress username
-            const password = 'Di%7k4xlxGS&CrvGB)ugmgMY'; // Replace with your WordPress application password
+            const username = 'Omm1'; // Replace with your WordPress username
+            const password = 'pdb@L@knFco!%J^z^(LMbmJZ'; // Replace with your WordPress application password
             const credentials = btoa(`${username}:${password}`);
 
             try {
@@ -296,8 +315,8 @@
 
          async function getOrCreateCategory(categoryName) {
             const url = 'https://xplorefuture.com/wp-json/wp/v2/categories';
-            const username = 'Tushar'; // Replace with your WordPress username
-            const password = 'Di%7k4xlxGS&CrvGB)ugmgMY'; // Replace with your WordPress application password
+            const username = 'Omm1'; // Replace with your WordPress username
+            const password = 'pdb@L@knFco!%J^z^(LMbmJZ'; // Replace with your WordPress application password
             const credentials = btoa(`${username}:${password}`);
 
             try {
@@ -328,10 +347,10 @@
             }
         }
         async function sendPostToWordpress(title, content, excerpt, tags, categories) {
-    const url = 'https://xplorefuture.com/wp-json/wp/v2/posts';
-    const username = 'Tushar'; // Replace with your WordPress username
-    const password = 'Di%7k4xlxGS&CrvGB)ugmgMY'; // Replace with your WordPress application password
-    const credentials = btoa(`${username}:${password}`);
+            const url = 'https://xplorefuture.com/wp-json/wp/v2/posts';
+            const username = 'Omm1'; // Replace with your WordPress username
+            const password = 'pdb@L@knFco!%J^z^(LMbmJZ'; // Replace with your WordPress application password
+            const credentials = btoa(`${username}:${password}`);
 
     try {
         const response = await fetch(url, {
@@ -366,7 +385,7 @@
 
         async function generateParagraph() {
             let Collegename = document.getElementById('Collegename').value;
-            let city = document.getElementById('city').value;
+            let city = document.getElementById('city').value ;
             let state = document.getElementById('state').value;
             let established = document.getElementById('established').value;
             let Typeofcollege = document.getElementById('Typeofcollege').value;
@@ -378,9 +397,16 @@
             let Highestpackage = document.getElementById('Highestpackage').value;
             let Averagepackage = document.getElementById('Averagepackage').value;
             let Toprecruiter = document.getElementById('Toprecruiter').value;
+            let extraheading1= document.getElementById('extraheading1').value;
+            let extrapara1 = document.getElementById('extrapara1').value;
+            let extraheading2= document.getElementById('extraheading2').value;
+            let extrapara2 = document.getElementById('extrapara2').value;
+            let extraheading3= document.getElementById('extraheading3').value;
+            let extrapara3 = document.getElementById('extrapara3').value;
+
 
             // Constructing the paragraph with headings
-            let paragraph = `<h3>Info</h3><p>${Collegename}, ${city}, ${state} established in year ${established}.It is a reputed institute and offers various ${Courseoffered} courses in full-time mode.${Collegename} is a ${Typeofcollege} ${appaff} by ${appaffby}.</p>`;
+            let paragraph = `<h3>Info</h3><p>${Collegename},${state} established in year ${established}.It is a reputed institute and offers various ${Courseoffered} courses in full-time mode.${Collegename} is a ${Typeofcollege} ${appaff} by ${appaffby}.</p>`;
             paragraph += ` Some of the most popular courses offered at the institute are ${avcourse} etc. Admission to the college is done by ${Entranceexam}.</p>`;
             paragraph += `<table>
         <tr><th>Type of College</th><td>${Typeofcollege}</td></tr>
@@ -403,14 +429,22 @@
         paragraph += `<table><tr><th>Highest Package</th><th>Average Package</th></tr>`;
         paragraph += `<tr><td>${Highestpackage}</td><td>${Averagepackage}</td></tr></table>`;
     }
-    
+    if (extraheading1 && extrapara1) {
+        paragraph += `<h3>${extraheading1}</h3><p>${extrapara1} </p>`;
+    }
+    if (extraheading2 && extrapara2) {
+        paragraph += `<h3>${extraheading2}</h3><p>${extrapara2} </p>`;
+    }
+    if (extraheading3 && extrapara3) {
+        paragraph += `<h3>${extraheading3}</h3><p>${extrapara3} </p>`;
+    }
 
     // Top recruiter section (included only if Toprecruiter is provided)
     if (Toprecruiter) {
         paragraph += `<h3>Top Recruiter</h3><p>Top recruiters include</p> <p><strong>${Toprecruiter}.</strong></p>`;
     }
             
-            let excerpt = `${Collegename} is a ${Typeofcollege} of ${state} present in the city of ${city}. It offers various ${Courseoffered} Courses`;
+            let excerpt = `${Collegename} is a ${Typeofcollege} of ${state} present in ${city}. It offers various ${Courseoffered} Courses`;
             // Display the generated paragraph
             // document.getElementById('generatedParagraph').innerHTML = paragraph;
             document.getElementById('generatedParagraph').innerHTML = paragraph;
