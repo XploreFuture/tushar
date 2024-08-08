@@ -73,7 +73,7 @@
 </head>
 <body>
     <form>
-        <label for="Collegename">College Name,City:</label>
+        <label for="Collegename">College Name,City,State:</label>
         <input type="text" id="Collegename" name="Collegename" required><br><br>
 
         <label for="city">City:</label>
@@ -409,7 +409,7 @@
 
 
             // Constructing the paragraph with headings
-            let paragraph = `<h3>Info</h3><p>${Collegename},${state} established in year ${established}.It is a reputed institute and offers various ${Courseoffered} courses in full-time mode.${Collegename} is a ${Typeofcollege} ${appaff} by ${appaffby}.</p>`;
+            let paragraph = `<h3>Info</h3><p>${Collegename} established in year ${established}.It is a reputed institute and offers various ${Courseoffered} courses in full-time mode.${Collegename} is a ${Typeofcollege} ${appaff} by ${appaffby}.</p>`;
             paragraph += ` Some of the most popular courses offered at the institute are ${avcourse} etc. Admission to the college is done by ${Entranceexam}.</p>`;
             paragraph += `<table>
         <tr><th>Type of College</th><td>${Typeofcollege}</td></tr>
