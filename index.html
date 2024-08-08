@@ -423,7 +423,7 @@
             let courseTable = document.getElementById('courseTable').getElementsByTagName('tbody')[0];
             for (let i = 0; i < courseTable.rows.length; i++) {
                 let cells = courseTable.rows[i].cells;
-                paragraph += `<tr><td>${cells[0].innerText}</td><td>${cells[1].innerText}</td></tr>`;
+                paragraph += `<tr><td>${cells[0].innerText}</td><td>₹${cells[1].innerText}</td></tr>`;
             }
             paragraph += `</table>`;
              // Conditional placement section
